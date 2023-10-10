@@ -1,6 +1,6 @@
 // Import
 import java.util.Scanner; // Import Scanner utility
-import ignore.guessingGameLogic; // Import .java file from the guessing package
+import guessing.guessingGameLogic; // Import .java file from the guessing package
 
 
 // Code

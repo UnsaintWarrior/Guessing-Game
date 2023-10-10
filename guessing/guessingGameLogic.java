@@ -1,34 +1,50 @@
-package guessing;
+package guessing; 
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class guessingGameLogic {
-    private int randomYoungNumber; // Declare randomYoungNumber as a class-level field
+    private int randomNumber; // Declare randomNumber as a class-level field
+    private int maxTries; // Maximum number of tries
+    private Scanner scanner;
 
-    public void playYoungMode() {
-        Random random = new Random();
-        randomYoungNumber = random.nextInt(10) + 1;
-
-        // System.out.println("(DEBUG)Número aleatório: " + randomYoungNumber); // Debug - Random number generator
-        youngUserGuess();
+    public guessingGameLogic(int maxTries, int maxRange) {
+        this.maxTries = maxTries;
+        this.scanner = new Scanner(System.in);
+        initializeRandomNumber(maxRange);
     }
 
-    private void youngUserGuess() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Adivinhe o número:");
+    private void initializeRandomNumber(int maxRange) {
+        Random random = new Random();
+        randomNumber = random.nextInt(maxRange) + 1;
+        // Uncomment the next line for debugging:
+         System.out.println("(DEBUG)Número aleatório: " + randomNumber);
+    }
 
-        int userGuess = scanner.nextInt(); // Read user input and store it in a variable
+    public void playGame() {
+        int currentTries = 0;
 
-        scanner.close();
+        while (currentTries < maxTries) {
+            System.out.println("Adivinhe o número:");
+            int userGuess = scanner.nextInt();
 
-        System.out.println("Você adivinhou: " + userGuess); // Print the user's guess
+            System.out.println("Você adivinhou: " + userGuess);
 
-        // Compare the user's guess with the random number
-        if (userGuess == randomYoungNumber) {
-            System.out.println("Parabéns! Você acertou o número!");
-        } else {
-            System.out.println("Você errou. O número correto era: " + randomYoungNumber);
+            if (userGuess == randomNumber) {
+                System.out.println("Parabéns! Você acertou o número!");
+                break;
+            } else {
+                System.out.println("Você errou. Tente novamente.");
+                currentTries++;
+            }
         }
+
+        if (currentTries >= maxTries) {
+            System.out.println("Você atingiu o limite de tentativas. O número correto era: " + randomNumber);
+        }
+    }
+
+    public void closeScanner() {
+        scanner.close();
     }
 }
