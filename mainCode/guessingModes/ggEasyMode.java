@@ -47,6 +47,7 @@ public class ggEasyMode {
                     System.out.println("Opps, " + userName + "! Parece que você esgotou suas tentativas, o número era: " + ramNum + "!");
                     System.out.println(" ");
                 } else {
+                    System.out.println(" ");
                     System.out.println("Você errou, tente novamente! (" + remainingTries + " tentativas restantes!)");
                     System.out.println(" ");
                 }
