@@ -18,7 +18,6 @@ public class guessingGameApp {
         if (userAge < 12) { // Check the user's age and select the appropriate game version
             gameLogic = new guessingGameLogic(5, 10); // Set the "young" version with the propper parameters
         } else {
-            // (guessingGameLogic) //Activate (>= 12) range
             gameLogic = new guessingGameLogic(10, 1000); // Set the "old" version with the propper parameters
         }
 
