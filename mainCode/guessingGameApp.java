@@ -9,40 +9,50 @@ import mainCode.guessingModes.ggHardMode;
 public class guessingGameApp {
     private Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Bem vindo ao jogo de adivinha, aqui você irá, em 5 tentativas, acertar o número aleatório que eu escolhi!");
-
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Bem vindo ao jogo! Aqui você irá, em 5 tentativas, tentar acertar o número aleatório que eu escolhi!");
+        System.out.println(" ");
         System.out.println("Antes de começarmos, pode me dizer seu nome?");
+        System.out.println(" ");
         String userName = new guessingGameApp().scanner.next();
-        System.out.println("ótimo, é um prazer em conhecelo: " + userName);
+        System.out.println(" ");
+        System.out.println("ótimo, é um prazer em conhece-lo: " + userName);
+        System.out.println(" ");
         
         try {
-            // Wait for 5 seconds (5000 milliseconds)
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // Handle any exceptions that may occur
+
         }
 
         System.out.println("Antes de começarmos preciso que digite sua idade:");
+        System.out.println(" ");
         int userAge = new guessingGameApp().scanner.nextInt();
-        System.out.println("Sua idade é: " + userAge + " anos!");
+        System.out.println(" ");
+        System.out.println("Você tem " + userAge + " anos!");
+        System.out.println(" ");
         
         try {
-            // Wait for 5 seconds (5000 milliseconds)
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // Handle any exceptions that may occur
+
         }
 
         if (userAge < 12) {
             //Run easyMode code
             System.out.println("Você é jovem, portanto irá jogar no modo easy!");
-            ggEasyMode easyMode = new ggEasyMode();
+            System.out.println(" ");
+            ggEasyMode easyMode = new ggEasyMode(userName); 
             easyMode.randomNumberGenerator();
         } else {
             //Run hardMode code
-            System.out.println("Você é mais velho, portanto irá jogar no modo hard!");
-            ggHardMode hardMode = new ggHardMode();
+            System.out.println("Você é mais experiente, portanto irá jogar no modo difícil!");
+            System.out.println(" ");
+            ggHardMode hardMode = new ggHardMode(userName);
             hardMode.randomNumberGenerator();
         }
+
     }
 }
