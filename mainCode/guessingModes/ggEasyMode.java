@@ -11,7 +11,9 @@ public class ggEasyMode {
     public void randomNumberGenerator() {
         Random random = new Random();
         this.ramNum = random.nextInt(10) + 1;
+
         System.out.println("Número aleatório: " + this.ramNum);
+
         playEasyMode();
     }
 
@@ -19,36 +21,27 @@ public class ggEasyMode {
     private void playEasyMode() {
         Scanner scanner = new Scanner(System.in);
 
-
-
-// FIX THIS SHIT
-
-/*
+        int maxTries = 5;
         int currentTry = 0;
 
-        do {
+        do{
             System.out.println("Adivinhe o número:");
             int userGuess = scanner.nextInt();
+
             if (userGuess == this.ramNum) {
                 System.out.println("Parabéns, você acertou! O número sorteado foi: " + this.ramNum);
                 break;
             } else {
                 currentTry++;
-                int remainingTries = 5 - currentTry;
-                if (currentTry == 0) {
-                    System.out.println("Você errou na primeira tentativa, " + remainingTries + " tentativas restantes!");
+                int remainingTries = maxTries - currentTry;
+
+                if (remainingTries == 0) {
+                    System.out.println("Você esgotou suas tentativas, o jogo terminou!!");
                 } else {
-                    System.out.println("Você errou, tente novamente! " + remainingTries + " tentativas restantes!");
+                    System.out.println("Você errou, tente novamente! (" + remainingTries + " tentativas restantes!)");
                 }
             }
-        } while (currentTry < 5);
-*/
-
-
-// FIX THIS SHIT
-
-
-
+        } while (currentTry < maxTries);
         scanner.close();
     }
 }
